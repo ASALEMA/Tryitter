@@ -1,9 +1,7 @@
-﻿using TryitterSolution.WebAPI.Excepitions;
-using TryitterSolution.WebAPI.Extensions;
+﻿using TryitterSolution.WebAPI.Exceptions;
 using TryitterSolution.WebAPI.Interfaces.Repositories;
 using TryitterSolution.WebAPI.Interfaces.Services;
 using TryitterSolution.WebAPI.Models;
-using TryitterSolution.WebAPI.Repository;
 
 namespace TryitterSolution.WebAPI.Services
 {
@@ -37,7 +35,7 @@ namespace TryitterSolution.WebAPI.Services
 
             if (post == null)
             {
-                throw new UserNotExistsException($"Usuário de ID {postId} não existe!");
+                throw new PostNotExistsException($"Usuário de ID {postId} não existe!");
             }
             _postRepository.Delete(post);
         }

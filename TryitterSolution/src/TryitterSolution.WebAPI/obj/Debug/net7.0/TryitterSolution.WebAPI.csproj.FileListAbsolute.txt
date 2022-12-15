@@ -152,3 +152,4 @@ C:\Users\aline\Desktop\ProjetoFinal\Tryitter\TryitterSolution\src\TryitterSoluti
 C:\Users\aline\Desktop\ProjetoFinal\Tryitter\TryitterSolution\src\TryitterSolution.WebAPI\obj\Debug\net7.0\TryitterSolution.WebAPI.pdb
 C:\Users\aline\Desktop\ProjetoFinal\Tryitter\TryitterSolution\src\TryitterSolution.WebAPI\obj\Debug\net7.0\TryitterSolution.WebAPI.genruntimeconfig.cache
 C:\Users\aline\Desktop\ProjetoFinal\Tryitter\TryitterSolution\src\TryitterSolution.WebAPI\obj\Debug\net7.0\ref\TryitterSolution.WebAPI.dll
+C:\Users\aline\Desktop\ProjetoFinal\Tryitter\TryitterSolution\src\TryitterSolution.WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

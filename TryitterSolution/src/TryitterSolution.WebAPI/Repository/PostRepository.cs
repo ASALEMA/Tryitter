@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 using TryitterSolution.WebAPI.Interfaces.Repositories;
 using TryitterSolution.WebAPI.Models;
 
 namespace TryitterSolution.WebAPI.Repository
 {
+    [ExcludeFromCodeCoverage]
     public class PostRepository : IPostRepository
     {
         private readonly ITryitterContext _context;

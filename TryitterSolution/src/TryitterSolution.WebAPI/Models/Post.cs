@@ -15,7 +15,6 @@ namespace TryitterSolution.WebAPI.Models
 
         [ForeignKey(("UserId"))]
         public int UserId { get; init; }
-        public User User { get; init; }
 
     }
 }

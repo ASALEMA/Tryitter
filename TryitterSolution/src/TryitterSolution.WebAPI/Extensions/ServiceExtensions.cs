@@ -9,6 +9,7 @@ namespace TryitterSolution.WebAPI.Extensions
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IPostService, PostService>();
+            services.AddScoped<IAuthService, AuthService>();
 
             return services;
         }

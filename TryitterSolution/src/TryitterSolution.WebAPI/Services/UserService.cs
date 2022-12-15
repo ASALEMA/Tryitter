@@ -1,5 +1,4 @@
-﻿using TryitterSolution.WebAPI.Excepitions;
-using TryitterSolution.WebAPI.Extensions;
+﻿using TryitterSolution.WebAPI.Exceptions;
 using TryitterSolution.WebAPI.Interfaces.Repositories;
 using TryitterSolution.WebAPI.Interfaces.Services;
 using TryitterSolution.WebAPI.Models;
@@ -20,19 +19,20 @@ namespace TryitterSolution.WebAPI.Services
             if (await _userRepository.ExistsAsync(user, cancellationToken))
             {
                 throw new UserAlreadyExistsException($"O usuário {user.Email} já existe.");
-
             }
+
             await _userRepository.AddAsync(user, cancellationToken);
         }
 
         public async Task ChangePasswordAsync(int userId, string password, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetByIdAsync(userId, cancellationToken);
-            
-            if(user == null)
+
+            if (user == null)
             {
                 throw new UserNotExistsException($"Usuário de ID {userId} não existe!");
             }
+
             _userRepository.ChangePassword(user!, password, cancellationToken);
         }
 
@@ -44,12 +44,25 @@ namespace TryitterSolution.WebAPI.Services
             {
                 throw new UserNotExistsException($"Usuário de ID {userId} não existe!");
             }
+
             _userRepository.Delete(user);
         }
 
         public IEnumerable<User> GetAll(CancellationToken cancellationToken)
         {
-           return _userRepository.GetAll(cancellationToken);
+            return _userRepository.GetAll(cancellationToken);
+        }
+
+        public async Task<User> GetByEmailAndPasswordAsync(string email, string password, CancellationToken cancellationToken)
+        {
+            var user = await _userRepository.GetByEmailAndPasswordAsync(email, password, cancellationToken);
+
+            if (user is null)
+            {
+                throw new UserNotExistsException($"O usuário {email} não existe!");
+            }
+
+            return user;
         }
     }
 }

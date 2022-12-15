@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "y+fgW5xixrXiMwFATh1LUDB07lKoEhX9dEjPcExqz9LKfBDUqLQhYaNsF/WHR43u3AmuMzyWldzAGe+8uImsUQ==",
+  "dgSpecHash": "D485Qf3atdS6dxUlvVwuz8+f3QVudOma1TGrJR2XTO0LXgS6Qh4Moks6kcwq+DD3sXHhj4t3nsxQgfnW7hytIQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\aline\\Desktop\\ProjetoFinal\\Tryitter\\TryitterSolution\\src\\TryitterSolution.WebAPI\\TryitterSolution.WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aline\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\aline\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\aline\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\aline\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.1\\microsoft.aspnetcore.authentication.jwtbearer.7.0.1.nupkg.sha512",
     "C:\\Users\\aline\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\aline\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

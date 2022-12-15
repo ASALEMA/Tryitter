@@ -15,7 +15,7 @@ namespace TryitterSolution.WebAPI.Models
 
         public string? Modulo { get; set; }
 
-        public bool Status { get; set; } = true;
+        public string? Status { get; set; }
 
         [StringLength(maximumLength: 10, MinimumLength = 5)]
         public string? Password { get; set; }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using TryitterSolution.WebAPI.Interfaces.Services;
 using TryitterSolution.WebAPI.Models;
@@ -18,6 +19,7 @@ namespace TryitterSolution.WebAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [SwaggerOperation(Summary = "Cria um novo usuário")]
         [SwaggerResponse(StatusCodes.Status200OK)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
@@ -34,6 +36,7 @@ namespace TryitterSolution.WebAPI.Controllers
         }
 
         [HttpPatch("change-password")]
+        [Authorize]
         [SwaggerOperation(Summary = "Responsável pela atualização da senha")]
         [SwaggerResponse(StatusCodes.Status200OK)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
@@ -71,6 +74,7 @@ namespace TryitterSolution.WebAPI.Controllers
         }
 
         [HttpDelete]
+        [Authorize]
         [SwaggerOperation(Summary = "Responsável por deletar usuários do sistema")]
         [SwaggerResponse(StatusCodes.Status200OK)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]

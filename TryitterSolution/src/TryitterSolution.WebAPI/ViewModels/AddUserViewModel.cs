@@ -16,8 +16,5 @@ namespace TryitterSolution.WebAPI.ViewModels
         [SwaggerSchema("Senha de acesso.Deve possuir de 5 a 10 caracters.")]
         [StringLength(maximumLength: 10, MinimumLength = 5)]
         public required string Password { get; init; }
-
-
-
     }
 }

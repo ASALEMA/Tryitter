@@ -67,12 +67,11 @@ namespace TryitterSolution.WebAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId");
 
@@ -81,13 +80,11 @@ namespace TryitterSolution.WebAPI.Migrations
 
             modelBuilder.Entity("TryitterSolution.WebAPI.Models.Post", b =>
                 {
-                    b.HasOne("TryitterSolution.WebAPI.Models.User", "User")
+                    b.HasOne("TryitterSolution.WebAPI.Models.User", null)
                         .WithMany("Posts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("TryitterSolution.WebAPI.Models.User", b =>

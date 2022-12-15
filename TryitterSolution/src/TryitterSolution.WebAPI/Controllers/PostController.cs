@@ -1,15 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using TryitterSolution.WebAPI.Interfaces.Services;
 using TryitterSolution.WebAPI.Models;
-using TryitterSolution.WebAPI.Services;
 using TryitterSolution.WebAPI.ViewModels;
 
 namespace TryitterSolution.WebAPI.Controllers
 {
     [Route("api/posts")]
     [ApiController]
-    public class PostController: ControllerBase
+    public class PostController : ControllerBase
     {
         private readonly IPostService _postService;
         public PostController(IPostService postService)
@@ -18,6 +18,7 @@ namespace TryitterSolution.WebAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [SwaggerOperation(Summary = "Cria um novo usuário")]
         [SwaggerResponse(StatusCodes.Status200OK)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
@@ -34,13 +35,13 @@ namespace TryitterSolution.WebAPI.Controllers
         }
 
         [HttpPatch("change-post")]
+        [Authorize]
         [SwaggerOperation(Summary = "Responsável pela atualização do post")]
         [SwaggerResponse(StatusCodes.Status200OK)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> ChangePasswordAsync(ChangePostViewModel viewModel, CancellationToken cancellationToken)
         {
-
-            await _postService.ChangePostAsync(viewModel.PostId, viewModel.Text, viewModel.Imagem, cancellationToken);
+            await _postService.ChangePostAsync(viewModel.PostId, viewModel!.Text, viewModel?.Imagem, cancellationToken);
             return Ok();
         }
 
@@ -71,6 +72,7 @@ namespace TryitterSolution.WebAPI.Controllers
 
 
         [HttpDelete]
+        [Authorize]
         [SwaggerOperation(Summary = "Responsável por deletar um post do sistema")]
         [SwaggerResponse(StatusCodes.Status200OK)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]

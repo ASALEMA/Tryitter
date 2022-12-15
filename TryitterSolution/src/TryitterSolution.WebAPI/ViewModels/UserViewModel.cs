@@ -16,6 +16,6 @@ namespace TryitterSolution.WebAPI.ViewModels
         public string? Modulo { get; set; }
 
         [SwaggerSchema("Indica se o usuário está ativo ou não no sistema.")]
-        public bool Status { get; set; }
+        public string Status { get; set; }
     }
 }

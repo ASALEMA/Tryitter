@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 using TryitterSolution.WebAPI.Interfaces.Repositories;
 using TryitterSolution.WebAPI.Models;
 
 namespace TryitterSolution.WebAPI.Repository
 {
+    [ExcludeFromCodeCoverage]
     public class UserRepository : IUserRepository
     {
 
@@ -18,8 +20,8 @@ namespace TryitterSolution.WebAPI.Repository
         {
             await _context.Users.AddAsync(user, cancellationToken);
 
-             _context.SaveChanges();
-            
+            _context.SaveChanges();
+
         }
 
         public void ChangePassword(User user, string password, CancellationToken cancellationToken)
@@ -45,9 +47,14 @@ namespace TryitterSolution.WebAPI.Repository
             return _context.Users.ToList();
         }
 
+        public Task<User?> GetByEmailAndPasswordAsync(string email, string password, CancellationToken cancellationToken)
+        {
+            return _context.Users.FirstOrDefaultAsync(c => c.Email == email && c.Password == password, cancellationToken);
+        }
+
         public Task<User?> GetByIdAsync(int userId, CancellationToken cancellationToken)
         {
-            return _context.Users.FirstOrDefaultAsync(c => c.UserId== userId, cancellationToken);
+            return _context.Users.FirstOrDefaultAsync(c => c.UserId == userId, cancellationToken);
         }
     }
 }
