@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\TryitterSolution.WebAPI.props" />
+</Project>
